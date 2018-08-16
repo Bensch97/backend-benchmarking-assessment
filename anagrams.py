@@ -36,11 +36,18 @@ def find_anagrams(words):
         {'dgo': ['dog'], 'act': ['cat', 'act']}
 
     """
-    anagrams = {
-        alphabetize(word): [
-            w for w in words
-            if alphabetize(w) == alphabetize(word)]
-        for word in words}
+    # anagrams = {
+    #     alphabetize(word): [
+    #         w for w in words
+    #         if alphabetize(w) == alphabetize(word)]
+    #     for word in words}
+    anagrams = {}
+    for word in words:
+        alpha_word = alphabetize(word)
+        if alpha_word in anagrams.keys():
+            anagrams[alpha_word] += [word]
+        else:
+            anagrams[alpha_word] = [word]
     return anagrams
 
 
