@@ -46,6 +46,7 @@ def find_anagrams(words):
         alpha_word = alphabetize(word)
         if alpha_word in anagrams.keys():
             anagrams[alpha_word] += [word]
+            break
         else:
             anagrams[alpha_word] = [word]
     return anagrams
